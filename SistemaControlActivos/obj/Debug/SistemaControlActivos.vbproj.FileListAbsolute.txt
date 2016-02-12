@@ -1,0 +1,9 @@
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\bin\SistemaControlActivos.dll.config
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\bin\SistemaControlActivos.dll
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\bin\SistemaControlActivos.pdb
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\bin\SistemaControlActivos.xml
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\obj\Debug\SistemaControlActivos.Resources.resources
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\obj\Debug\SistemaControlActivos.vbproj.GenerateResource.Cache
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\obj\Debug\SistemaControlActivos.dll
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\obj\Debug\SistemaControlActivos.xml
+C:\Users\brgma_000\documents\visual studio 2013\Projects\SistemaControlActivos\SistemaControlActivos\obj\Debug\SistemaControlActivos.pdb

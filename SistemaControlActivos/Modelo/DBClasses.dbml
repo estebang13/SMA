@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Plantas" Class="DBClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=BRAYAN\SQLEXPRESS;Initial Catalog=Plantas;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PlantasConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Activo" Member="Activo">
+    <Type Name="Activo">
+      <Column Name="INMOVILIARIO" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NUMERO_INVENTARIO" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DENOMINACION_INMOVILIZADO" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SpN_INMOVILIARIO" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FE_CAPIT" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="VC_CURSO" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="idArea" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CODIGO_TAVO" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="idPlanta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPersonal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idProveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Activo_Mantenimiento" Member="Mantenimiento" ThisKey="INMOVILIARIO" OtherKey="idActivo" Type="Mantenimiento" />
+      <Association Name="Activo_Trazabilidad" Member="Trazabilidad" ThisKey="INMOVILIARIO" OtherKey="ACTIVO" Type="Trazabilidad" />
+      <Association Name="Areas_Activo" Member="Areas" ThisKey="idArea" OtherKey="idArea" Type="Areas" IsForeignKey="true" />
+      <Association Name="Estado_Activo" Member="Estado" ThisKey="idEstado" OtherKey="idEstado" Type="Estado" IsForeignKey="true" />
+      <Association Name="Personal_Activo" Member="Personal" ThisKey="idPersonal" OtherKey="idUsuario" Type="Personal" IsForeignKey="true" />
+      <Association Name="Plantas_Activo" Member="Plantas" ThisKey="idPlanta" OtherKey="idPlanta" Type="Plantas" IsForeignKey="true" />
+      <Association Name="Proveedor_Activo" Member="Proveedor" ThisKey="idProveedor" OtherKey="idProveedor" Type="Proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Areas" Member="Areas">
+    <Type Name="Areas">
+      <Column Name="idArea" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Areas_Activo" Member="Activo" ThisKey="idArea" OtherKey="idArea" Type="Activo" />
+      <Association Name="Areas_Usuarios" Member="Usuarios" ThisKey="idArea" OtherKey="idArea" Type="Usuarios" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estado" Member="Estado">
+    <Type Name="Estado">
+      <Column Name="idEstado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Estado_Activo" Member="Activo" ThisKey="idEstado" OtherKey="idEstado" Type="Activo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mantenimiento" Member="Mantenimiento">
+    <Type Name="Mantenimiento">
+      <Column Name="idMantenimiento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="horaInicio" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="horaFin" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="tipoMant" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="encargado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idActivo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Activo_Mantenimiento" Member="Activo" ThisKey="idActivo" OtherKey="INMOVILIARIO" Type="Activo" IsForeignKey="true" />
+      <Association Name="Personal_Mantenimiento" Member="Personal" ThisKey="encargado" OtherKey="idUsuario" Type="Personal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Personal" Member="Personal">
+    <Type Name="Personal">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idTPersonal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPlanta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido1" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido2" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="Personal_Activo" Member="Activo" ThisKey="idUsuario" OtherKey="idPersonal" Type="Activo" />
+      <Association Name="Personal_Mantenimiento" Member="Mantenimiento" ThisKey="idUsuario" OtherKey="encargado" Type="Mantenimiento" />
+      <Association Name="Personal_Trazabilidad" Member="Trazabilidad" ThisKey="idUsuario" OtherKey="IDCUSTODIOACTUAL" Type="Trazabilidad" />
+      <Association Name="Personal_Trazabilidad1" Member="Trazabilidad1" ThisKey="idUsuario" OtherKey="IDNUEVOCUSTODIO" Type="Trazabilidad" />
+      <Association Name="Personal_Usuarios" Member="Usuarios" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuarios" Cardinality="One" />
+      <Association Name="Plantas_Personal" Member="Plantas" ThisKey="idPlanta" OtherKey="idPlanta" Type="Plantas" IsForeignKey="true" />
+      <Association Name="TipoPersonal_Personal" Member="TipoPersonal" ThisKey="idTPersonal" OtherKey="idTPersonal" Type="TipoPersonal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Plantas" Member="Plantas">
+    <Type Name="Plantas">
+      <Column Name="idPlanta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="Plantas_Activo" Member="Activo" ThisKey="idPlanta" OtherKey="idPlanta" Type="Activo" />
+      <Association Name="Plantas_Personal" Member="Personal" ThisKey="idPlanta" OtherKey="idPlanta" Type="Personal" />
+      <Association Name="Plantas_Trazabilidad" Member="Trazabilidad" ThisKey="idPlanta" OtherKey="IDNUEVAPLANTA" Type="Trazabilidad" />
+      <Association Name="Plantas_Trazabilidad1" Member="Trazabilidad1" ThisKey="idPlanta" OtherKey="IDPLANTACTUAL" Type="Trazabilidad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Proveedor" Member="Proveedor">
+    <Type Name="Proveedor">
+      <Column Name="idProveedor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cedJur" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="montoMax" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Proveedor_Activo" Member="Activo" ThisKey="idProveedor" OtherKey="idProveedor" Type="Activo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoPersonal" Member="TipoPersonal">
+    <Type Name="TipoPersonal">
+      <Column Name="idTPersonal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="TipoPersonal_Personal" Member="Personal" ThisKey="idTPersonal" OtherKey="idTPersonal" Type="Personal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Trazabilidad" Member="Trazabilidad">
+    <Type Name="Trazabilidad">
+      <Column Name="IDTRAZABILIDAD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACTIVO" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IDPLANTACTUAL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDNUEVAPLANTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDCUSTODIOACTUAL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDNUEVOCUSTODIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Activo_Trazabilidad" Member="Activo1" ThisKey="ACTIVO" OtherKey="INMOVILIARIO" Type="Activo" IsForeignKey="true" />
+      <Association Name="Personal_Trazabilidad" Member="Personal" ThisKey="IDCUSTODIOACTUAL" OtherKey="idUsuario" Type="Personal" IsForeignKey="true" />
+      <Association Name="Plantas_Trazabilidad" Member="Plantas" ThisKey="IDNUEVAPLANTA" OtherKey="idPlanta" Type="Plantas" IsForeignKey="true" />
+      <Association Name="Personal_Trazabilidad1" Member="Personal1" ThisKey="IDNUEVOCUSTODIO" OtherKey="idUsuario" Type="Personal" IsForeignKey="true" />
+      <Association Name="Plantas_Trazabilidad1" Member="Plantas1" ThisKey="IDPLANTACTUAL" OtherKey="idPlanta" Type="Plantas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuarios" Member="Usuarios">
+    <Type Name="Usuarios">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idArea" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Usuario" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Pass" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Association Name="Areas_Usuarios" Member="Areas" ThisKey="idArea" OtherKey="idArea" Type="Areas" IsForeignKey="true" />
+      <Association Name="Personal_Usuarios" Member="Personal" ThisKey="idUsuario" OtherKey="idUsuario" Type="Personal" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
