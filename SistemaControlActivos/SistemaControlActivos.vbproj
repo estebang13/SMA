@@ -82,23 +82,18 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Vista\CSS\calendario.css" />
     <Content Include="Vista\CSS\fullcalendar.css" />
     <Content Include="Vista\CSS\fullcalendar.print.css" />
-    <Content Include="Vista\JS\calendario.js" />
+    <Content Include="Vista\CSS\style.css" />
+    <Content Include="Vista\JS\calendar.js" />
     <Content Include="Vista\JS\fullcalendar.min.js" />
     <Content Include="Vista\JS\jquery.min.js" />
     <Content Include="Vista\JS\moment.min.js" />
     <Content Include="Vista\Prueba.aspx" />
     <Content Include="Vista\Activos.aspx" />
     <Content Include="Vista\CSS\bootstrap.min.css" />
-    <Content Include="Vista\CSS\dashboard.css" />
-    <Content Include="Vista\CSS\general.css" />
-    <Content Include="Vista\CSS\signin.css" />
-    <Content Include="Vista\CSS\StyleSheet.css" />
     <Content Include="Vista\Inicio.aspx" />
     <Content Include="Vista\JS\bootstrap.min.js" />
-    <Content Include="Vista\JS\docs.min.js" />
     <Content Include="Vista\JS\jquery-2.1.4.min.js" />
     <Content Include="Vista\JS\ScriptModal1.js" />
     <Content Include="Vista\Plantas.aspx" />
