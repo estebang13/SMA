@@ -6,7 +6,23 @@ SistemaControlActivos
 </name>
 </assembly>
 <members>
-<member name="P:SistemaControlActivos.My.MyWebExtension.Computer">
+<member name="F:SistemaControlActivos.Plantas1.table1">
+	<summary>
+Control table1.
+</summary>
+	<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member><member name="F:SistemaControlActivos.Prueba.table1">
+	<summary>
+Control table1.
+</summary>
+	<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member><member name="P:SistemaControlActivos.My.MyWebExtension.Computer">
 	<summary>
  Devuelve información sobre el equipo host.
  </summary>
@@ -31,22 +47,6 @@ SistemaControlActivos
  Módulo usado para definir las propiedades que están disponibles en el espacio de nombres My para proyectos web.
  </summary>
 	<remarks></remarks>
-</member><member name="F:SistemaControlActivos.Prueba.table1">
-	<summary>
-Control table1.
-</summary>
-	<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member><member name="F:SistemaControlActivos.Plantas1.table1">
-	<summary>
-Control table1.
-</summary>
-	<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
 </member><member name="F:SistemaControlActivos.PaginaMaestra.head">
 	<summary>
 Control head.

@@ -1,32 +1,36 @@
 ﻿Public Class Plantas1
     Inherits System.Web.UI.Page
 
+    Private control As Control
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        control = New Control
 
         Dim row As HtmlTableRow
         Dim cell As HtmlTableCell
         Dim btn As New Button
-        Dim db As DBClassesDataContext = New DBClassesDataContext
+        Dim lista As List(Of PlantasDTO) = control.getAllPlantas
 
-        For Each a In db.Plantas
+        For Each a In lista
 
             row = New HtmlTableRow
 
             cell = New HtmlTableCell
-            cell.InnerHtml = a.idPlanta.ToString
+            cell.InnerHtml = a.IdValue.ToString
             row.Cells.Add(cell)
 
             cell = New HtmlTableCell
-            cell.InnerHtml = a.Descripcion
+            cell.InnerHtml = a.DescripcionValue
             row.Cells.Add(cell)
 
             cell = New HtmlTableCell
-            cell.InnerHtml = a.Telefono
+            cell.InnerHtml = a.TelefonoValue
             row.Cells.Add(cell)
 
             cell = New HtmlTableCell
             btn = New Button
-            btn.ID = a.idPlanta.ToString() + "M"
+            btn.ID = a.IdValue.ToString() + "M"
             btn.CssClass = "btn btn-info"
             btn.Text = "Modificar"
             AddHandler btn.Click, AddressOf modificarPlanta
@@ -35,7 +39,7 @@
 
             cell = New HtmlTableCell
             btn = New Button
-            btn.ID = a.idPlanta.ToString() + "E"
+            btn.ID = a.IdValue.ToString() + "E"
             btn.CssClass = "btn btn-danger"
             btn.Text = "Eliminar"
             AddHandler btn.Click, AddressOf eliminarPlanta

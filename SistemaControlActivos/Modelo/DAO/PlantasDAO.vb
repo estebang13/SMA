@@ -25,7 +25,7 @@ Public Class PlantasDAO
     Public Function readReader(reader As SqlDataReader) As List(Of PlantasDTO)
         Dim list As New List(Of PlantasDTO)()
         While reader.Read()
-            list.Add(New PlantasDTO(reader.GetInt16(0), reader.GetString(1), reader.GetString(2)))
+            list.Add(New PlantasDTO(Integer.Parse(reader.GetInt32(0)), reader.GetString(1), reader.GetString(2)))
         End While
         Return list
     End Function

@@ -100,11 +100,12 @@
     <Content Include="Vista\JS\bootstrap.min.js" />
     <Content Include="Vista\JS\docs.min.js" />
     <Content Include="Vista\JS\jquery-2.1.4.min.js" />
-    <Content Include="Vista\JS\ScriptModal.js" />
+    <Content Include="Vista\JS\ScriptModal1.js" />
     <Content Include="Vista\Plantas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\Control.vb" />
     <Compile Include="Modelo\DAO\DAO.vb" />
     <Compile Include="Modelo\DAO\PlantasDAO.vb" />
     <Compile Include="Modelo\DBClasses.designer.vb">
@@ -207,7 +208,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Control\" />
     <Folder Include="Vista\IMAGE\" />
   </ItemGroup>
   <PropertyGroup>

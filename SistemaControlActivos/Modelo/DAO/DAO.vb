@@ -6,7 +6,7 @@ Public Class DAO
     Public comando As SqlCommand
     Public reader As SqlDataReader
     Public sql As String
-    Public DEFAULT_URL As String = "Server= localhost; Database= Plantas;Integrated Security=SSPI;"
+    Public DEFAULT_URL As String = "Initial Catalog=PLANTAS;Data Source=BRAYAN\SQLEXPRESS;Integrated Security=SSPI;"
     Public url As String
 
 
