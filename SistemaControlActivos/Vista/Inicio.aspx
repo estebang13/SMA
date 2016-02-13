@@ -3,7 +3,6 @@
     <link href="CSS/fullcalendar.css" rel="stylesheet" />
     <link href="CSS/fullcalendar.print.css" rel="stylesheet" media="print" />
     <script src="JS/moment.min.js"></script>
-    <script src="JS/jquery.min.js"></script>
     <script src="JS/fullcalendar.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

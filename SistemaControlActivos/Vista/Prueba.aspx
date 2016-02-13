@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Vista/PaginaMaestra.Master" CodeBehind="Prueba.aspx.vb" Inherits="SistemaControlActivos.Prueba" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="JS/jquery-2.1.4.min.js"></script>
-    <script src="JS/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="page-header">Plantas</h1>
