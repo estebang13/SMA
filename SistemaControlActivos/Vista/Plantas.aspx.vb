@@ -10,6 +10,7 @@
         Dim row As HtmlTableRow
         Dim cell As HtmlTableCell
         Dim btn As New Button
+
         Dim lista As List(Of PlantasDTO) = control.getAllPlantas
 
         For Each a In lista
@@ -29,21 +30,11 @@
             row.Cells.Add(cell)
 
             cell = New HtmlTableCell
-            btn = New Button
-            btn.ID = a.IdValue.ToString() + "M"
-            btn.CssClass = "btn btn-info"
-            btn.Text = "Modificar"
-            AddHandler btn.Click, AddressOf modificarPlanta
-            cell.Controls.Add(btn)
+            cell.InnerHtml = "<input type='button' class='btn btn-info' data-toggle='modal' data-target='#ModalModificar' data-whatever='modificar," + a.IdValue.ToString() + "," + a.DescripcionValue() + "," + a.TelefonoValue() + "' value='Modificar' />"
             row.Cells.Add(cell)
 
             cell = New HtmlTableCell
-            btn = New Button
-            btn.ID = a.IdValue.ToString() + "E"
-            btn.CssClass = "btn btn-danger"
-            btn.Text = "Eliminar"
-            AddHandler btn.Click, AddressOf eliminarPlanta
-            cell.Controls.Add(btn)
+            cell.InnerHtml = "<input type='button' class='btn btn-danger' data-toggle='modal' data-target='#ModalEliminar' data-whatever='" + a.IdValue.ToString() + "," + a.DescripcionValue + "' value='Eliminar' />"
             row.Cells.Add(cell)
 
             table1.Rows.Add(row)
@@ -51,32 +42,35 @@
 
     End Sub
 
-    Private Sub modificarPlanta(ByVal sender As Object, ByVal e As EventArgs)
-        Dim btn As Button = DirectCast(sender, Button)
-        Dim message, title, defaultValue As String
-        Dim myValue As Object
-        ' Set prompt.
-        message = "Enter a value between 1 and 3"
-        ' Set title.
-        title = "Modificar"
-        defaultValue = "1"   ' Set default value.
+    Public Sub insertarPlanta(ByVal sender As Object, ByVal e As EventArgs)
+        Dim nombrePlanta As String = Request.Form("nombrePlanta")
+        Dim telefonoPlanta As String = Request.Form("telefonoPlanta")
+        If (Not IsNothing(nombrePlanta)) And (Not IsNothing(telefonoPlanta)) Then
+            Dim valor As Integer = control.insertarPlanta(nombrePlanta, telefonoPlanta)
+            Response.Redirect(Request.Url.AbsoluteUri)
+            ClientScript.RegisterClientScriptBlock(Me.GetType, "alert", "alert('Planta insertada correctamente.')", True)
+        Else
+            ClientScript.RegisterClientScriptBlock(Me.GetType, "alert", "alert('Debe de completar los espacios.')", True)
+        End If
 
-        ' Display message, title, and default value.
-        myValue = InputBox("id= " + btn.ID.Replace("M", ""), title, defaultValue)
     End Sub
 
-    Private Sub eliminarPlanta(ByVal sender As Object, ByVal e As EventArgs)
-        'Dim btn As Button = DirectCast(sender, Button)
-        'Dim message, title, defaultValue As String
-        'Dim myValue As Object
-        ' Set prompt.
-        'message = "Enter a value between 1 and 3"
-        ' Set title.
-        'title = "Eliminar"
-        'defaultValue = "1"   ' Set default value.
+    Public Sub modificarPlanta(ByVal sender As Object, ByVal e As EventArgs)
+        Dim idPlanta As String = Request.Form("idPlanta")
+        Dim telefonoPlanta As String = Request.Form("telefonoPlanta")
+        If (Not IsNothing(telefonoPlanta)) Then
+            'modificar en la base de datos
+            control.modificarPlanta(Integer.Parse(idPlanta), telefonoPlanta)
+            Response.Redirect(Request.Url.AbsoluteUri)
+            ClientScript.RegisterClientScriptBlock(Me.GetType, "alert", "alert('Cambios realizados correctamente.')", True)
+        Else
+            ClientScript.RegisterClientScriptBlock(Me.GetType, "alert", "alert('Debe de completar el telefono.')", True)
+        End If
+    End Sub
 
-        ' Display message, title, and default value.
-        'myValue = InputBox("id= " + btn.ID.Replace("E", ""), title, defaultValue)
+    Public Sub eliminarPlanta(ByVal sender As Object, ByVal e As EventArgs)
+        Dim idPlanta As String = Request.Form("idPlantaEliminar")
+        ClientScript.RegisterClientScriptBlock(Me.GetType, "alert", "alert('Cambios realizados correctamente. " + idPlanta + "')", True)
     End Sub
 
 End Class

@@ -30,35 +30,27 @@
             row.Cells.Add(cell)
 
             cell = New HtmlTableCell
-            btn = New Button
-            btn.ID = a.IdValue.ToString() + "M"
-            btn.CssClass = "btn btn-info"
-            btn.Text = "Modificar"
-            AddHandler btn.Click, AddressOf modificarPlanta
-            cell.Controls.Add(btn)
-            row.Cells.Add(cell)
-
-
-            cell = New HtmlTableCell
-            cell.InnerHtml = "<input type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal' data-whatever='" + a.IdValue.ToString() + "," + a.DescripcionValue() + "," + a.TelefonoValue() + "' value='Open modal for @mdo' />"
+            cell.InnerHtml = "<input type='button' class='btn btn-primary' data-toggle='modal' data-target='#Modal' data-whatever='" + a.IdValue.ToString() + "," + a.DescripcionValue() + "," + a.TelefonoValue() + "' value='Modificar' />"
             row.Cells.Add(cell)
 
             table1.Rows.Add(row)
         Next
     End Sub
 
-    Private Sub modificarPlanta(ByVal sender As Object, ByVal e As EventArgs)
-        Dim btn As Button = DirectCast(sender, Button)
-        Dim message, title, defaultValue As String
-        Dim myValue As Object
-        ' Set prompt.
-        message = "Enter a value between 1 and 3"
-        ' Set title.
-        title = "Modificar"
-        defaultValue = "1"   ' Set default value.
+    Public Sub modificarPlanta(ByVal sender As Object, ByVal e As EventArgs)
+        'Dim btn As HtmlButton = DirectCast(sender, HtmlButton)
+        'Dim message, title, defaultValue As String
+        'Dim myValue As Object
+        '' Set prompt.
+        'message = "Enter a value between 1 and 3"
+        '' Set title.
+        'title = "Modificar"
+        'defaultValue = "1"   ' Set default value.
 
-        ' Display message, title, and default value.
-        myValue = InputBox("id= " + btn.ID.Replace("M", ""), title, defaultValue)
+        '' Display message, title, and default value.
+        'myValue = InputBox("id= " + btn.ID, title, defaultValue)
+        'MsgBox("Success")
+        ClientScript.RegisterClientScriptBlock(Me.GetType, "alert", "alert('Database updated.')", True)
     End Sub
 
 End Class

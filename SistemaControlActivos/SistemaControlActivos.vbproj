@@ -95,7 +95,7 @@
     <Content Include="Vista\Inicio.aspx" />
     <Content Include="Vista\JS\bootstrap.min.js" />
     <Content Include="Vista\JS\jquery-2.1.4.min.js" />
-    <Content Include="Vista\JS\ScriptModal1.js" />
+    <Content Include="Vista\JS\ScriptModal2.js" />
     <Content Include="Vista\Plantas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

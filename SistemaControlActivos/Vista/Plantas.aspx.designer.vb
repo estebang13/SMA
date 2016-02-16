@@ -21,4 +21,31 @@ Partial Public Class Plantas1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents table1 As Global.System.Web.UI.HtmlControls.HtmlTable
+
+    '''<summary>
+    '''Control insertarModal.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents insertarModal As Global.System.Web.UI.HtmlControls.HtmlInputButton
+
+    '''<summary>
+    '''Control modificarModal.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents modificarModal As Global.System.Web.UI.HtmlControls.HtmlInputButton
+
+    '''<summary>
+    '''Control Button2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Button2 As Global.System.Web.UI.HtmlControls.HtmlInputButton
 End Class

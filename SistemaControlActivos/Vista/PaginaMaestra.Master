@@ -44,13 +44,13 @@
         <div class="row">
             <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="Inicio.aspx">Inicio </a></li>
-                    <li><a href="Activos.aspx">Activos</a></li>
-                    <li><a href="Plantas.aspx">Plantas</a></li>
-                    <li><a href="Proveedores.aspx">Proveedores</a></li>
-                    <li><a href="Custodios.aspx">Custodios</a></li>
-                    <li><a href="Mantenimiento.aspx">Mantenimiento</a></li>
-                    <li><a href="Prueba.aspx">Prueba.aspx</a></li>
+                    <li><a id="inicio" name="inicio" href="Inicio.aspx">Inicio </a></li>
+                    <li><a id="activos" name="activos" href="Activos.aspx">Activos</a></li>
+                    <li><a id="plantas" name="plantas" href="Plantas.aspx">Plantas</a></li>
+                    <li><a id="provedores" name="provedores" href="Proveedores.aspx">Proveedores</a></li>
+                    <li><a id="custodios" name="custodios" href="Custodios.aspx">Custodios</a></li>
+                    <li><a id="mantenimiento" name="mantenimiento" href="Mantenimiento.aspx">Mantenimiento</a></li>
+                    <li><a id="prueba" name="prueba" href="Prueba.aspx">Prueba.aspx</a></li>
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li><a href="Trazabilidad.aspx">Trazabilidad</a></li>
@@ -68,5 +68,5 @@
         </div>
     </div>
 </body>
-<script src="JS/ScriptModal1.js"></script>
+<script src="JS/ScriptModal2.js"></script>
 </html>
