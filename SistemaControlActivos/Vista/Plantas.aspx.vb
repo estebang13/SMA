@@ -70,7 +70,9 @@
 
     Public Sub eliminarPlanta(ByVal sender As Object, ByVal e As EventArgs)
         Dim idPlanta As String = Request.Form("idPlantaEliminar")
+        control.eliminarPlanta(Integer.Parse(idPlanta))
         ClientScript.RegisterClientScriptBlock(Me.GetType, "alert", "alert('Cambios realizados correctamente. " + idPlanta + "')", True)
+        Response.Redirect(Request.Url.AbsoluteUri)
     End Sub
 
 End Class

@@ -57,6 +57,22 @@ Public Class PlantasDAO
         Return valor
     End Function
 
+    Public Function eliminarPlanta(idPlanta As Integer) As Integer
+        Dim valor As Integer = 0
+        conectar()
+        comando = New SqlCommand
+        comando.Connection = conexion
+        comando.CommandText = "eliminarPlanta"
+        comando.CommandType = CommandType.StoredProcedure
+
+        comando.Parameters.AddWithValue("Id", idPlanta)
+
+        valor = comando.ExecuteNonQuery()
+
+        desconectar()
+        Return valor
+    End Function
+
     Public Function readReader(reader As SqlDataReader) As List(Of PlantasDTO)
         Dim list As New List(Of PlantasDTO)()
         While reader.Read()

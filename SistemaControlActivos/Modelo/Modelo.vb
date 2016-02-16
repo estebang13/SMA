@@ -18,4 +18,8 @@
         Return plantadao.modificarPlanta(idPlanta, telefono)
     End Function
 
+    Public Function eliminarPlanta(idPlanta As Integer) As Integer
+        Return plantadao.eliminarPlanta(idPlanta)
+    End Function
+
 End Class
