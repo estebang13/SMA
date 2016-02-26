@@ -8,7 +8,7 @@ Public Class DAO
     Public sql As String
     Public DEFAULT_URL As String = "Initial Catalog=PLANTAS;Data Source=BRAYAN\SQLEXPRESS;Integrated Security=SSPI;"
     ' Dos cosas...
-    ' La primera: Probar que tengo bien conectado esto y que los cambios que yo haga les están llegando
+    ' La primera: Probando desde Visual Studio
     ' La segunda: Bryan cuando pueda explíqueme esta conexión a base de datos, para ver si es lo que estoy estendiendo o estoy mamerto...
     Public url As String
 
